@@ -280,6 +280,11 @@ Prefab:
       propertyPath: m_Name
       value: Slash
       objectReference: {fileID: 0}
+    - target: {fileID: 61567217366091266, guid: 8a26ce2b29a485e44b1070132cdfb90b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50583410158455994, guid: 8a26ce2b29a485e44b1070132cdfb90b, type: 2}
     - {fileID: 114712758286163334, guid: 8a26ce2b29a485e44b1070132cdfb90b, type: 2}
