@@ -8,32 +8,37 @@ public class ShiftToNearestSquare : Movement
     public Movement[] disableDuringShift;
     public Vector2 centerOfObject;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.LeftShift))
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            transform.position = new Vector2(Mathf.FloorToInt(transform.position.x + centerOfObject.x), Mathf.FloorToInt(transform.position.y + centerOfObject.y));
-            transform.eulerAngles = new Vector3();
+            transform.position = getShiftPosition();
+            transform.eulerAngles = getShiftEulerAngles();
 
-            foreach(Movement script in  disableDuringShift)
+            foreach (Movement script in disableDuringShift)
             {
                 script.stopMovement();
             }
         }
-        
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             foreach (Movement script in disableDuringShift)
             {
                 script.startMovement();
             }
         }
-	}
+    }
+
+    public Vector2 getShiftPosition()
+    {
+        return new Vector2(Mathf.FloorToInt(transform.position.x + centerOfObject.x), Mathf.FloorToInt(transform.position.y + centerOfObject.y));
+    }
+
+    public Vector3 getShiftEulerAngles()
+    {
+        return new Vector3();
+    }
 
     public override void startMovement()
     {
